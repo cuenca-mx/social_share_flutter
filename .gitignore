@@ -5,3 +5,12 @@
 .pub/
 
 build/
+
+.idea/
+*.iml
+
+# Flutter iOS generated
+**/Flutter/ephemeral/
+
+# FVM Version Cache
+.fvm/

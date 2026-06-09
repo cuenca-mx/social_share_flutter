@@ -4,13 +4,13 @@ version: 2.3.1
 homepage: https://github.com/ShekarMudaliyar/social_share
 
 environment:
-  sdk:  ">=3.3.4 <4.0.0"
-  flutter: '>=3.34.0 <4.0.0'
+  sdk: ">=3.9.0 <4.0.0"
+  flutter: ">=3.41.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  path_provider: ^2.0.5
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:
