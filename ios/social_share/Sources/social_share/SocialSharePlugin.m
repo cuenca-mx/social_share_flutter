@@ -3,7 +3,7 @@
 //  Copyright © 2019 Shekar Mudaliyar. All rights reserved.
 //
 
-#import "./include/social_share/SocialSharePlugin.h"
+#import "SocialSharePlugin.h"
 #include <objc/runtime.h>
 
 @implementation SocialSharePlugin

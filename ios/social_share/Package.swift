@@ -20,6 +20,9 @@ let package = Package(
             dependencies: [
                 .product(name: "FlutterFramework", package: "FlutterFramework")
             ],
+            resources: [
+                .process("PrivacyInfo.xcprivacy"),
+            ],
             cSettings: [
                 .headerSearchPath("include/social_share")
             ]
