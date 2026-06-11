@@ -1,5 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.shekarmudaliyar.social_share">
-    <meta-data android:name="flutterEmbedding" android:value="2"/>
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <meta-data android:name="flutterEmbedding" android:value="2"/>
+        <provider
+            android:name="com.shekarmudaliyar.social_share.SocialSharePluginFileProvider"
+            android:authorities="${applicationId}.com.shekarmudaliyar.social_share"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/social_share_filepaths"/>
+        </provider>
+    </application>
+
+    <queries>
+        <package android:name="com.instagram.android"/>
+        <package android:name="com.facebook.katana"/>
+        <package android:name="com.twitter.android"/>
+        <package android:name="com.whatsapp"/>
+        <package android:name="org.telegram.messenger"/>
+    </queries>
+
 </manifest>

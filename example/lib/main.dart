@@ -10,8 +10,10 @@ import 'package:social_share/social_share.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -43,9 +45,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<String?> pickImage() async {
-    final file = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-    );
+    final file = await ImagePicker().pickImage(source: ImageSource.gallery);
     var path = file?.path;
     if (path == null) {
       return null;
@@ -71,9 +71,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Social Share'),
-        ),
+        appBar: AppBar(title: const Text('Social Share')),
         body: Screenshot(
           controller: screenshotController,
           child: Container(
@@ -107,7 +105,7 @@ class _MyAppState extends State<MyApp> {
                             backgroundTopColor: "#ffffff",
                             backgroundBottomColor: "#000000",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -124,7 +122,7 @@ class _MyAppState extends State<MyApp> {
                             imagePath: path,
                             backgroundResourcePath: imageBackgroundPath,
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -141,7 +139,7 @@ class _MyAppState extends State<MyApp> {
                             imagePath: path,
                             backgroundResourcePath: videoBackgroundPath,
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -150,10 +148,7 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          "Facebook",
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        child: Text("Facebook", style: TextStyle(fontSize: 16)),
                       ),
                       SizedBox(width: 40),
                       ElevatedButton(
@@ -169,7 +164,7 @@ class _MyAppState extends State<MyApp> {
                             backgroundTopColor: "#ffffff",
                             backgroundBottomColor: "#000000",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -186,7 +181,7 @@ class _MyAppState extends State<MyApp> {
                             imagePath: path,
                             backgroundResourcePath: imageBackgroundPath,
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -203,7 +198,7 @@ class _MyAppState extends State<MyApp> {
                             imagePath: path,
                             backgroundResourcePath: videoBackgroundPath,
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -212,10 +207,7 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          "Twitter",
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        child: Text("Twitter", style: TextStyle(fontSize: 16)),
                       ),
                       SizedBox(width: 40),
                       ElevatedButton(
@@ -227,12 +219,12 @@ class _MyAppState extends State<MyApp> {
                               "SocialSharePlugin",
                               "world",
                               "foo",
-                              "bar"
+                              "bar",
                             ],
                             url: "https://google.com/hello",
                             trailingText: "cool!!",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -253,7 +245,7 @@ class _MyAppState extends State<MyApp> {
                           SocialShare.copyToClipboard(
                             image: await screenshot(),
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -264,7 +256,7 @@ class _MyAppState extends State<MyApp> {
                           SocialShare.copyToClipboard(
                             text: "This is Social Share plugin",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                       ),
@@ -273,10 +265,7 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          "SMS",
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        child: Text("SMS", style: TextStyle(fontSize: 16)),
                       ),
                       SizedBox(width: 40),
                       ElevatedButton(
@@ -287,7 +276,7 @@ class _MyAppState extends State<MyApp> {
                             url: "https://google.com/",
                             trailingText: "\nhello",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data?.toString());
                           });
                         },
                       ),
@@ -306,7 +295,7 @@ class _MyAppState extends State<MyApp> {
                         child: Icon(Icons.text_fields),
                         onPressed: () async {
                           SocialShare.shareOptions("Hello world").then((data) {
-                            print(data);
+                            debugPrint(data?.toString());
                           });
                         },
                       ),
@@ -315,10 +304,7 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          "Whatsapp",
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        child: Text("Whatsapp", style: TextStyle(fontSize: 16)),
                       ),
                       SizedBox(width: 40),
                       ElevatedButton(
@@ -326,7 +312,7 @@ class _MyAppState extends State<MyApp> {
                           SocialShare.shareWhatsapp(
                             "Hello World \n https://google.com",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                         child: Icon(Icons.text_fields),
@@ -336,10 +322,7 @@ class _MyAppState extends State<MyApp> {
                   Row(
                     children: [
                       Expanded(
-                        child: Text(
-                          "Telegram",
-                          style: TextStyle(fontSize: 16),
-                        ),
+                        child: Text("Telegram", style: TextStyle(fontSize: 16)),
                       ),
                       SizedBox(width: 40),
                       ElevatedButton(
@@ -347,7 +330,7 @@ class _MyAppState extends State<MyApp> {
                           SocialShare.shareTelegram(
                             "Hello World \n https://google.com",
                           ).then((data) {
-                            print(data);
+                            debugPrint(data);
                           });
                         },
                         child: Icon(Icons.text_fields),
@@ -367,7 +350,7 @@ class _MyAppState extends State<MyApp> {
                         child: Icon(Icons.text_fields),
                         onPressed: () async {
                           SocialShare.checkInstalledAppsForShare().then((data) {
-                            print(data.toString());
+                            debugPrint(data?.toString());
                           });
                         },
                       ),
