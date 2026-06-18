@@ -16,10 +16,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-    }
-
     sourceSets {
         getByName("main") {
             java.directories.add("src/main/kotlin")
@@ -32,5 +28,11 @@ android {
 
     lint {
         disable += "InvalidPackage"
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
